@@ -4,7 +4,9 @@ import { Hero } from "@/components/hero/Hero";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <div className="flex justify-center">
+        <Hero />
+      </div>
       {/* More sections like About, Projects, Contact */}
     </>
   );
