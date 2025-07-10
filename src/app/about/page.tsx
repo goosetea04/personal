@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col justify-center bg-gradient-to-b from-white to-gray-100">
-        <Hero />
+        Hi
       </div>
       {/* More sections like About, Projects, Contact */}
     </>
