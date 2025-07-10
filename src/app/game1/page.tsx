@@ -13,12 +13,22 @@ export default function Home() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x111111);
 
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
+    const aspect = window.innerWidth / window.innerHeight;
+    const d = 20; // how zoomed in/out you want
+
+    const camera = new THREE.OrthographicCamera(
+    -d * aspect,
+    d * aspect,
+    d,
+    -d,
+    1,
+    1000
     );
+
+    // Position camera at an angle for isometric look
+    camera.position.set(20, 20, 20);
+    camera.lookAt(0, 0, 0);
+
     camera.position.z = 20;
 
     const renderer = new THREE.WebGLRenderer();
@@ -85,36 +95,42 @@ export default function Home() {
       accumulator += delta;
 
       if (accumulator > 0.2) {
-        // Move the snake
+       
         const newHeadPos = snakeSegments[0].position.clone().add(direction);
 
         for (let i = snakeSegments.length - 1; i > 0; i--) {
-          snakeSegments[i].position.copy(snakeSegments[i - 1].position);
+            snakeSegments[i].position.copy(snakeSegments[i - 1].position);
         }
         snakeSegments[0].position.copy(newHeadPos);
 
-        // Check collision with food
         if (snakeSegments[0].position.distanceTo(food.position) < 1) {
-          // Add new segment
-          const newSegment = new THREE.Mesh(
+            const newSegment = new THREE.Mesh(
             new THREE.BoxGeometry(segmentSize, segmentSize, segmentSize),
             snakeMaterial
-          );
-          const tail = snakeSegments[snakeSegments.length - 1];
-          newSegment.position.copy(tail.position);
-          scene.add(newSegment);
-          snakeSegments.push(newSegment);
+            );
+            const tail = snakeSegments[snakeSegments.length - 1];
+            newSegment.position.copy(tail.position);
+            scene.add(newSegment);
+            snakeSegments.push(newSegment);
 
-          // Reposition food
-          food.position.set(
+            food.position.set(
             Math.floor(Math.random() * 10 - 5),
             Math.floor(Math.random() * 10 - 5),
             0
-          );
+            );
+        }
+
+        for (let i = 1; i < snakeSegments.length; i++) {
+            if (snakeSegments[0].position.distanceTo(snakeSegments[i].position) < 0.5) {
+            alert("Game Over! You collided with yourself.");
+            window.location.reload();
+            break;
+            }
         }
 
         accumulator = 0;
-      }
+        }
+
 
       renderer.render(scene, camera);
     };
