@@ -22,16 +22,19 @@ const Header = () => {
       <nav>
         <ul className="flex space-x-6 text-gray-700 text-lg">
           <li>
-            <Link href="#about">About Me</Link>
+            <Link href="about">About</Link>
           </li>
           <li>
-            <Link href="#blog">Blog</Link>
+            <Link href="blog">Blog</Link>
           </li>
           <li>
-            <Link href="#portfolio">Portfolio</Link>
+            <Link href="portfolio">Portfolio</Link>
           </li>
           <li>
-            <Link href="#resume">Resume</Link>
+            <Link href="resume">Resume</Link>
+          </li>
+          <li>
+            <Link href="library">Games!</Link>
           </li>
         </ul>
       </nav>
