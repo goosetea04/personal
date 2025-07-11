@@ -9,9 +9,9 @@ export default function Home() {
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // === Scene setup ===
+    // Scene setup 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x111111);
+    scene.background = new THREE.Color(0xfcfcfc);
 
     const aspect = window.innerWidth / window.innerHeight;
     const d = 20; // how zoomed in/out you want
@@ -26,7 +26,7 @@ export default function Home() {
     );
 
     // Position camera at an angle for isometric look
-    camera.position.set(20, 20, 20);
+    camera.position.set(20, 10, 15);
     camera.lookAt(0, 0, 0);
 
     camera.position.z = 20;
@@ -35,7 +35,7 @@ export default function Home() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-    // === Snake ===
+    // Snake 
     const snakeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     const snakeSegments: THREE.Mesh[] = [];
 
@@ -51,33 +51,66 @@ export default function Home() {
       snakeSegments.push(segment);
     }
 
-    // === Food ===
+    // Food 
+    let score = 0;
     const foodGeometry = new THREE.SphereGeometry(0.5, 16, 16);
     const foodMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
     const food = new THREE.Mesh(foodGeometry, foodMaterial);
     food.position.set(
-      Math.floor(Math.random() * 10 - 5),
-      Math.floor(Math.random() * 10 - 5),
-      0
+      Math.floor(Math.random() * 20 - 10),
+      0,
+      Math.floor(Math.random() * 20 - 10)
     );
     scene.add(food);
 
-    // === Movement ===
+    // Plane/Grid 
+    const planeGeometry = new THREE.PlaneGeometry(40, 40);
+    const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f0, side: THREE.DoubleSide, transparent: true, opacity: 0.5 });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.x = -Math.PI / 2; // Make it horizontal
+    scene.add(plane);
+
+
+
+    // Movement 
     let direction = new THREE.Vector3(1, 0, 0);
 
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
         case "ArrowUp":
-          direction.set(0, 1, 0);
+        case "W":
+        case "w":
+          console.log(direction)
+          if (direction.x === 0 && direction.y === 0 && direction.z === 1) {
+            console.log(direction)
+          } else {
+            direction.set(0, 0, -1);
+            console.log(direction)
+          }
           break;
         case "ArrowDown":
-          direction.set(0, -1, 0);
+        case "S":
+        case "s":
+          if (direction.x === 0 && direction.y === 0 && direction.z === -1) {
+          } else {
+            direction.set(0, 0, 1);
+          }
           break;
         case "ArrowLeft":
-          direction.set(-1, 0, 0);
+        case "A":
+        case "a":
+          if (direction.x === 1 && direction.y === 0 && direction.z === 0) {
+          } else {
+            direction.set(-1, 0, 0);
+          }
           break;
         case "ArrowRight":
-          direction.set(1, 0, 0);
+        case "D":
+        case "d":
+          if (direction.x === -1 && direction.y === 0 && direction.z === 0) {
+          } else {
+            direction.set(1, 0, 0);
+          }
           break;
       }
     };
@@ -104,21 +137,31 @@ export default function Home() {
         snakeSegments[0].position.copy(newHeadPos);
 
         if (snakeSegments[0].position.distanceTo(food.position) < 1) {
-            const newSegment = new THREE.Mesh(
+          // Increase score
+          score += 1;
+          const scoreElement = document.getElementById("score");
+          if (scoreElement) {
+            scoreElement.innerText = `Score: ${score}`;
+          }
+
+          // Grow snake
+          const newSegment = new THREE.Mesh(
             new THREE.BoxGeometry(segmentSize, segmentSize, segmentSize),
             snakeMaterial
-            );
-            const tail = snakeSegments[snakeSegments.length - 1];
-            newSegment.position.copy(tail.position);
-            scene.add(newSegment);
-            snakeSegments.push(newSegment);
+          );
+          const tail = snakeSegments[snakeSegments.length - 1];
+          newSegment.position.copy(tail.position);
+          scene.add(newSegment);
+          snakeSegments.push(newSegment);
 
-            food.position.set(
+          // Reposition food
+          food.position.set(
             Math.floor(Math.random() * 10 - 5),
-            Math.floor(Math.random() * 10 - 5),
-            0
-            );
+            0,
+            Math.floor(Math.random() * 10 - 5)
+          );
         }
+
 
         for (let i = 1; i < snakeSegments.length; i++) {
             if (snakeSegments[0].position.distanceTo(snakeSegments[i].position) < 0.5) {
@@ -144,5 +187,27 @@ export default function Home() {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-screen" />;
+  return (
+    <>
+      <div
+        id="score"
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "20px",
+          fontSize: "24px",
+          fontFamily: "sans-serif",
+          color: "#333",
+          background: "#ffffffaa",
+          padding: "10px",
+          borderRadius: "8px",
+          zIndex: 10,
+        }}
+      >
+        Score: 0
+      </div>
+
+      <div ref={mountRef} className="w-full h-screen" />
+    </>
+  );
 }
