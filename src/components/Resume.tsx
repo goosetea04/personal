@@ -6,6 +6,12 @@ import { FaDownload } from "react-icons/fa";
 
 const timeline = [
     {
+    start: "June 2025",
+    end: "July 2025",
+    title: "Business Growth @ SAIEP, Brisbane",
+    description: "I was partnered with a client organization in Brisbane to conduct a thorough assessment of their business operations. Together, we identified several areas for enhancement and formulated a multi-faceted implementation strategy to address these opportunities.",
+  },
+    {
     start: "January 2025",
     end: "Present",
     title: "VP of Partnership and Finance @ ANU Data Science Community",
