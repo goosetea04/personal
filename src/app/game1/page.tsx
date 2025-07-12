@@ -56,9 +56,9 @@ export default function Home() {
     const foodMaterial = new THREE.MeshBasicMaterial({ color: 0xc22c63});
     const food = new THREE.Mesh(foodGeometry, foodMaterial);
     food.position.set(
-      Math.floor(Math.random() * 20 - 10),
+      Math.floor(Math.random() * 55 - 10),
       0,
-      Math.floor(Math.random() * 20 - 10)
+      Math.floor(Math.random() * 55 - 10)
     );
     scene.add(food);
 
@@ -119,13 +119,19 @@ export default function Home() {
     let clock = new THREE.Clock();
     let accumulator = 0;
 
+    let speed = 0.2;
+    let isGameOver = false;
+
     const animate = () => {
+      if (isGameOver) return;
       requestAnimationFrame(animate);
 
       const delta = clock.getDelta();
       accumulator += delta;
 
-      if (accumulator > 0.2) {
+      speed = Math.max(0.05, speed - delta * 0.005);
+
+      if (accumulator > speed) {
         const newHeadPos = snakeSegments[0].position.clone().add(direction);
 
         for (let i = snakeSegments.length - 1; i > 0; i--) {
@@ -137,6 +143,7 @@ export default function Home() {
           newHeadPos.x < -25 || newHeadPos.x > 25 ||
           newHeadPos.z < -25 || newHeadPos.z > 25
         ) {
+          isGameOver = true;
           alert("Game Over! You went out of bounds.");
           window.location.reload();
           return;
@@ -144,6 +151,7 @@ export default function Home() {
 
 
         if (snakeSegments[0].position.distanceTo(food.position) < 1) {
+          
           score += 1;
           const scoreElement = document.getElementById("score");
           if (scoreElement) {
@@ -168,6 +176,7 @@ export default function Home() {
 
         for (let i = 1; i < snakeSegments.length; i++) {
           if (snakeSegments[0].position.distanceTo(snakeSegments[i].position) < 0.5) {
+            isGameOver = true;
             alert("Game Over! You collided with yourself.");
             window.location.reload();
             break;
@@ -194,7 +203,7 @@ export default function Home() {
       {!gameStarted && (
         <div
           style={{
-            position: "fixed", // <-- make it fixed to viewport
+            position: "fixed", 
             top: 0,
             left: 0,
             width: "100vw",
@@ -205,7 +214,7 @@ export default function Home() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            zIndex: 9999, // big z-index to be safe
+            zIndex: 9999, 
             textAlign: "center",
             padding: "20px",
           }}

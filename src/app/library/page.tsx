@@ -7,8 +7,8 @@ import Header from "@/components/Header";
 const games = [
   {
     slug: "game1",
-    title: "Adventure Quest",
-    description: "Embark on an epic journey full of quests and treasures.",
+    title: "Three.js Snake",
+    description: "The classic game you know and love :)",
   },
   {
     slug: "game2",

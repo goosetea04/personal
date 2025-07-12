@@ -29,7 +29,7 @@ const Header = () => {
             <Link href="blog">Blog</Link>
           </li>
           <li>
-            <Link href="portfolio">Portfolio</Link>
+            <Link href="portfolio">Projects</Link>
           </li>
           <li>
             <Link href="resume">Resume</Link>
