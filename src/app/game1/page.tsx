@@ -12,7 +12,7 @@ export default function Home() {
 
     // Scene setup 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xfcfcfc);
+    scene.background = new THREE.Color(0x00df81);
 
     const aspect = window.innerWidth / window.innerHeight;
     const d = 20; // zoom
@@ -26,17 +26,15 @@ export default function Home() {
       1000
     );
 
-    camera.position.set(20, 10, 15);
+    camera.position.set(20, 15, 20);
     camera.lookAt(0, 0, 0);
-
-    camera.position.z = 20;
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
     // Snake
-    const snakeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const snakeMaterial = new THREE.MeshBasicMaterial({ color: 0x03624c });
     const snakeSegments: THREE.Mesh[] = [];
 
     const segmentSize = 1;
@@ -54,7 +52,7 @@ export default function Home() {
     // Food
     let score = 0;
     const foodGeometry = new THREE.SphereGeometry(0.5, 16, 16);
-    const foodMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const foodMaterial = new THREE.MeshBasicMaterial({ color: 0xc22c63});
     const food = new THREE.Mesh(foodGeometry, foodMaterial);
     food.position.set(
       Math.floor(Math.random() * 20 - 10),
@@ -66,10 +64,10 @@ export default function Home() {
     // Plane/Grid
     const planeGeometry = new THREE.PlaneGeometry(50, 50);
     const planeMaterial = new THREE.MeshBasicMaterial({
-      color: 0xf0f0f0,
+      color: 0xf1f6f7,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.3,
     });
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.rotation.x = -Math.PI / 2;
@@ -129,6 +127,16 @@ export default function Home() {
           snakeSegments[i].position.copy(snakeSegments[i - 1].position);
         }
         snakeSegments[0].position.copy(newHeadPos);
+
+        if (
+          newHeadPos.x < -25 || newHeadPos.x > 25 ||
+          newHeadPos.z < -25 || newHeadPos.z > 25
+        ) {
+          alert("Game Over! You went out of bounds.");
+          window.location.reload();
+          return;
+        }
+
 
         if (snakeSegments[0].position.distanceTo(food.position) < 1) {
           score += 1;
@@ -205,7 +213,7 @@ export default function Home() {
               marginTop: "30px",
               padding: "10px 20px",
               fontSize: "18px",
-              background: "#00ff00",
+              background: "#032221",
               border: "none",
               borderRadius: "8px",
               cursor: "pointer",
