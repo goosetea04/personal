@@ -115,7 +115,7 @@ export default function About({ imageSrc = "/me (1).png" }: AboutProps) {
 
           <div className="text-right mb-8">
             <h2 className="text-[#06302b] text-4xl md:text-5xl font-bold uppercase tracking-wide font-nimbus">
-              Skills
+              what i do 💚
             </h2>
           </div>
 
