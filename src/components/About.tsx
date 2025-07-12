@@ -38,18 +38,6 @@ export default function About({ imageSrc = "/me (1).png" }: AboutProps) {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <div className="relative overflow-hidden w-full min-h-screen bg-[#2cc295] flex sm:px-12" id="about">
       {/* Left Side - About Content */}
@@ -70,10 +58,10 @@ export default function About({ imageSrc = "/me (1).png" }: AboutProps) {
 
           <div className="space-y-4 max-w-lg">
             <p className="text-[#095544] text-lg md:text-xl font-medium font-nimbus leading-relaxed">
-              I'm a passionate software engineer who thrives on turning complex problems into elegant solutions. With a strong foundation in modern web technologies and a keen eye for design, I bridge the gap between functionality and user experience.
+              I am a passionate software engineer who thrives on turning complex problems into elegant solutions. With a strong foundation in modern web technologies and a keen eye for design, I bridge the gap between functionality and user experience.
             </p>
             <p className="text-[#095544] text-lg md:text-xl font-medium font-nimbus leading-relaxed">
-              My approach combines clean, scalable code with innovative thinking. I believe great software isn't just about making things work; it's about making them work beautifully.
+              My approach combines clean, scalable code with innovative thinking. I believe great software is not just about making things work; it is about making them work beautifully.
             </p>
           </div>
 

@@ -217,7 +217,7 @@ export const Email = () => {
               Get in Touch
             </h1>
             <p className="text-[#095544] text-xl md:text-2xl font-medium" style={{ fontFamily: "var(--font-nimbus-sans), sans-serif" }}>
-              Have a project in mind? Let's talk about it!
+              Have a project in mind? Let&apos;s talk about it!
             </p>
           </motion.div>
 
@@ -303,7 +303,7 @@ export const Email = () => {
               Ready to Start?
             </h3>
             <p className="text-[#095544] text-lg" style={{ fontFamily: "var(--font-nimbus-sans), sans-serif" }}>
-              I'm excited to hear about your project and help bring your ideas to life.
+              I&apos;m excited to hear about your project and help bring your ideas to life.
             </p>
           </motion.div>
         </motion.div>

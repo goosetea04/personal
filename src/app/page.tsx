@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Hero } from "@/components/hero/Hero";
 import TechStack from "@/components/techstack/TechStack";
 import Header from "@/components/Header";

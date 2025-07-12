@@ -50,7 +50,7 @@ export default function TechStack() {
         {/* Right Side - Tech cards */}
         <div className="w-1/2 relative z-10 flex flex-col justify-center items-end pr-12">
           <div className="flex flex-col gap-3 px-4 w-full">
-            {techStacks.map((tech, index) => (
+            {techStacks.map((tech) => (
               <button
                 key={tech.name}
                 onClick={() => setSelectedTech(tech)}

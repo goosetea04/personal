@@ -46,6 +46,13 @@ export default function Platformer() {
     height: number;
   }
 
+  type Rect = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
   interface Enemy {
     x: number;
     y: number;
@@ -70,7 +77,7 @@ export default function Platformer() {
   let collectibles: Collectible[] = [];
 
   platforms.push({ x: 50, y: 400, width: 200, height: 20 });
-  
+
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowLeft" || e.key === "a") keys.left = true;
     if (e.key === "ArrowRight" || e.key === "d") keys.right = true;
@@ -101,7 +108,7 @@ export default function Platformer() {
     collectibles = [];
   };
 
-  const checkCollision = (a: any, b: any) => (
+  const checkCollision = (a: Rect, b: Rect) => (
     a.x < b.x + b.width &&
     a.x + a.width > b.x &&
     a.y < b.y + b.height &&

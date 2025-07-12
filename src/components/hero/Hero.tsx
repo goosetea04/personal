@@ -29,18 +29,6 @@ export const Hero = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     // Check if it's an anchor link (starts with /#)
     if (href.startsWith('/#')) {
@@ -63,7 +51,7 @@ export const Hero = () => {
       <div className="w-1/2 relative z-10 flex flex-col justify-end pb-24 pl-12">
         <div className="space-y-2">
           <p className="text-[#095544] text-xl pl-2 sm:text-2xl md:text-4xl font-bold font-nimbus">
-            Hi I'm
+            Hi I&apos;m
           </p>
           <h1
             className="text-[#06302b] text-6xl md:text-7xl lg:text-9xl font-bold uppercase tracking-wide"
