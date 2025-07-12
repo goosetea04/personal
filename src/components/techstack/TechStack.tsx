@@ -22,7 +22,7 @@ export default function TechStack() {
         <div className="absolute top-1/2 right-1/4 w-8 h-8 border border-[#06302b]/20 rotate-45"></div>
       </div>
 
-      <div className="flex min-h-screen mx-12">
+      <div className="flex min-h-screen mx-12 flex-col  lg:flex-row">
         {/* Left Side - Hero style title */}
         <div className="w-1/2 relative z-10 flex flex-col justify-center pl-12">
           <div className="space-y-2">
