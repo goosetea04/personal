@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
+import Header from "@/components/Header";
 
 export default function Home() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -84,6 +85,7 @@ export default function Home() {
           if (!(direction.x === 0 && direction.z === 1)) {
             direction.set(0, 0, -1);
           }
+          event.preventDefault();
           break;
         case "ArrowDown":
         case "S":
@@ -91,6 +93,7 @@ export default function Home() {
           if (!(direction.x === 0 && direction.z === -1)) {
             direction.set(0, 0, 1);
           }
+          event.preventDefault();
           break;
         case "ArrowLeft":
         case "A":
@@ -98,6 +101,7 @@ export default function Home() {
           if (!(direction.x === 1 && direction.z === 0)) {
             direction.set(-1, 0, 0);
           }
+          event.preventDefault();
           break;
         case "ArrowRight":
         case "D":
@@ -105,6 +109,7 @@ export default function Home() {
           if (!(direction.x === -1 && direction.z === 0)) {
             direction.set(1, 0, 0);
           }
+          event.preventDefault();
           break;
       }
     };
@@ -185,26 +190,29 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       {!gameStarted && (
         <div
           style={{
-            position: "fixed",
+            position: "fixed", // <-- make it fixed to viewport
             top: 0,
             left: 0,
-            width: "100%",
-            height: "100%",
+            width: "100vw",
+            height: "100vh",
             background: "#000000cc",
             color: "#fff",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            zIndex: 20,
+            zIndex: 9999, // big z-index to be safe
             textAlign: "center",
             padding: "20px",
           }}
         >
-          <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>Snake Game Instructions</h1>
+          <h1 style={{ fontSize: "32px", marginBottom: "20px" }}>
+            Snake Game Instructions
+          </h1>
           <p>Use Arrow keys or WASD to move the snake.</p>
           <p>Avoid colliding with yourself. Eat red food to grow!</p>
           <button
@@ -222,18 +230,19 @@ export default function Home() {
             OK, Start Game
           </button>
         </div>
+
       )}
 
       <div
         id="score"
         style={{
           position: "absolute",
-          top: "20px",
+          top: "80px",
           left: "20px",
           fontSize: "24px",
           fontFamily: "sans-serif",
-          color: "#333",
-          background: "#ffffffaa",
+          color: "#f1f7f6",
+          background: "#0b453a",
           padding: "10px",
           borderRadius: "8px",
           zIndex: 10,
@@ -241,6 +250,7 @@ export default function Home() {
       >
         Score: 0
       </div>
+
 
       <div ref={mountRef} className="w-full min-h-screen" />
     </>

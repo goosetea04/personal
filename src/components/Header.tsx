@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+
 import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full flex items-center justify-between px-6 py-4 shadow-md mb-2 bg-[#032221]">
+    <header className="sticky top-0 z-50 w-full flex items-center justify-between px-6 py-4 shadow-md bg-[#032221]">
       {/* Logo */}
       <div className="text-2xl font-bold text-gray-800">
         <Image
@@ -20,7 +21,7 @@ const Header = () => {
 
       {/* Navigation */}
       <nav>
-        <ul className="flex space-x-6 text-gray-700 text-lg">
+        <ul className="flex space-x-6 text-[#2cc295] text-lg">
           <li>
             <Link href="about">About</Link>
           </li>
