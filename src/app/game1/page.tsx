@@ -56,9 +56,9 @@ export default function Home() {
     const foodMaterial = new THREE.MeshBasicMaterial({ color: 0xc22c63});
     const food = new THREE.Mesh(foodGeometry, foodMaterial);
     food.position.set(
-      Math.floor(Math.random() * 55 - 10),
+      Math.floor(Math.random() * 25 - 5),
       0,
-      Math.floor(Math.random() * 55 - 10)
+      Math.floor(Math.random() * 25 - 5)
     );
     scene.add(food);
 
@@ -168,9 +168,9 @@ export default function Home() {
           snakeSegments.push(newSegment);
 
           food.position.set(
-            Math.floor(Math.random() * 10 - 5),
+            Math.floor(Math.random() * 25 - 5),
             0,
-            Math.floor(Math.random() * 10 - 5)
+            Math.floor(Math.random() * 25 - 5)
           );
         }
 
