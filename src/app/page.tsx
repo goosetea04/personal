@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col justify-center bg-[#2cc295]">
+      <div className="flex flex-col justify-center items-center bg-[#2cc295]">
         <Hero />
         <Header />
         <TechStack />

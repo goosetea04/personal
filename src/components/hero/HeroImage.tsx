@@ -1,9 +1,8 @@
 import Image from "next/image";
-import profilePic from "../public/profile.jpg"; // or illustration
 
 export const HeroImage = () => {
   return (
-    <div className="w-full flex justify-center md:justify-end">
+    <div className="w-full flex justify-center items-center">
       <Image
         src="/istockphoto-1410538853-612x612.jpg"
         alt="Profile"
