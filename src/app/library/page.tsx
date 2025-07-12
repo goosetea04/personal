@@ -32,8 +32,8 @@ export default function GameLibrary() {
             <h1 className="text-[#06302b] text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-wide" style={{ fontFamily: 'var(--font-nimbus-sans), sans-serif' }}>
               Library
             </h1>
-            <p className="text-[#095544] text-xl md:text-2xl font-medium font-nimbus mt-8 leading-relaxed">
-              🎮 Explore my collection of interactive games and experiences
+            <p className="text-[#06302b] text-xl md:text-2xl font-medium font-nimbus mt-8 leading-relaxed">
+              I have loved making games in c++, lua, and Javascript. Try out some Javascript games I made below!
             </p>
           </div>
           

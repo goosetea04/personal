@@ -15,7 +15,7 @@ export const Hero = () => {
     { label: "About", href: "/#about" },
     { label: "Tech Stack", href: "/#techstack" },
     { label: "Get In Touch", href: "/#contact" },
-    { label: "Projects", href: "/play" },
+    { label: "Projects", href: "/portfolio" },
     { label: "Resume", href: "/resume" },
     { label: "Games", href: "/library" },
   ];
