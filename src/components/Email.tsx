@@ -61,7 +61,7 @@ export const Email = () => {
   };
 
   return (
-    <div className="relative overflow-hidden w-full min-h-screen bg-[#2cc295] flex items-center justify-center px-6" id="contact">
+    <div className="relative overflow-hidden w-full min-h-screen bg-[#2cc295] flex items-center justify-center px-6 " id="contact">
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Left Side - Contact Form */}

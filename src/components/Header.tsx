@@ -9,15 +9,17 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full flex items-center justify-between px-6 py-4 shadow-md bg-[#032221]">
       {/* Logo */}
-      <div className="text-2xl font-bold text-gray-800">
-        <Image
-                src="/logo.svg"
-                alt="Profile"
-                width={50}
-                height={50}
-                className="rounded-none object-cover"
-              />
-      </div>
+      <Link href="/">
+        <div className="text-2xl font-bold text-gray-800 flex items-center">
+          <Image
+            src="/logo.svg"
+            alt="Profile"
+            width={50}
+            height={50}
+            className="rounded-none object-cover"
+          />
+        </div>
+      </Link>
 
       {/* Navigation */}
       <nav>

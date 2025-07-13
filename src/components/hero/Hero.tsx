@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
+import HeroBackground from "../HeroBackground";
 
 export const Hero = () => {
   const controls = useAnimation();
@@ -47,6 +48,7 @@ export const Hero = () => {
 
   return (
     <div className="relative overflow-hidden w-full min-h-screen bg-[#2cc295] flex sm:px-6">
+      <HeroBackground />
       {/* Left Side */}
       <div className="w-1/2 relative z-10 flex flex-col justify-end pb-24 pl-12">
         <div className="space-y-2">

@@ -34,9 +34,9 @@ export const projects = [
     title: "Cancer Detection with Computer Vision",
     shortDescription: "A team project that achieved finalist position in Indonesia's prestigious GEMASTIK Competition",
     longDescription: "Built a comprehensive e-commerce platform featuring user authentication, product catalog, shopping cart, payment integration, and admin dashboard. Implemented responsive design and optimized for performance.",
-    image: "/projects/ecommerce.jpg",
+    image: "/projects/Cancer.png",
     tags: ["Machine Learning", "Research"],
     date: "2023-07-15",
-    link: "https://github.com/yourusername/ecommerce"
+    link: "https://buletingemastik.id/index.php/bg/article/view/202404.008/19"
   },
 ];
