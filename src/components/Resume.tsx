@@ -161,7 +161,7 @@ export default function Resume() {
             </button>
           </div>
             
-            <p className="text-[#095544] text-lg sm:text-xl lg:text-2xl xl:text-4xl font-nimbus leading-relaxed">
+            <p className="text-[#06302b] text-lg sm:text-xl lg:text-2xl xl:text-4xl font-nimbus leading-relaxed">
               I&apos;m currently into designing easy-to-use, intuitive yet stunning interfaces that work hand-in-hand with machine learning apps and software. I love making complex AI tools feel simple and natural for people, so everyone can get the most out of them without the frustration.
             </p>
           </div>

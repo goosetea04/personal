@@ -24,7 +24,7 @@ export const projects = [
     title: "PowerPlate",
     shortDescription: "AI-Powered personal trainer buddy built for a hackathon",
     longDescription: "PowerPlate is an innovative AI-powered fitness companion application developed during a hackathon to revolutionize personal training experiences. Built with React and Vite, this intelligent fitness platform combines cutting-edge artificial intelligence with intuitive user interface design to provide personalized workout guidance and motivation. The application serves as a virtual personal trainer, offering customized exercise routines, real-time form feedback, and adaptive training plans based on individual fitness levels and goals.",
-    image: "/projects/POWERPLATE.PNG",
+    image: "/projects/power.PNG",
     tags: ["Software Development"],
     date: "2024-09-20",
     link: "https://github.com/goosetea04/powerplate-Gusti.git"
