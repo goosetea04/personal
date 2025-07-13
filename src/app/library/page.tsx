@@ -24,8 +24,9 @@ export default function GameLibrary() {
   return (
     <main className="flex min-h-screen flex-col bg-[#2cc295]">
       <Header />
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-        <HeroBackground />
+      <HeroBackground />
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 z-20">
+        
         <div className="w-full max-w-6xl">
           <div className="text-center mb-16">
             <h1 className="text-[#06302b] text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-wide mb-4" style={{ fontFamily: 'var(--font-nimbus-sans), sans-serif' }}>
