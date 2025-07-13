@@ -11,7 +11,7 @@ const Header = () => {
       {/* Logo */}
       <div className="text-2xl font-bold text-gray-800">
         <Image
-                src="/gust-1.svg"
+                src="/logo.svg"
                 alt="Profile"
                 width={50}
                 height={50}

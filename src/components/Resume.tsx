@@ -48,10 +48,10 @@ export default function Resume() {
   };
 
   return (
-    <div className="justify-start w-full min-h-screen bg-[#2cc295] flex flex-col lg:flex-row sm:px-6 md:px-16">
+    <div className="justify-start w-full min-h-screen bg-[#2cc295] flex flex-col lg:flex-row sm:px-6 md:pl-12">
       {/* Left - Timeline */}
-      <div className="w-full lg:w-1/2 relative z-10 flex flex-col justify-start py-12 px-6 lg:pl-12">
-        <h2 className="text-[#06302b] text-5xl sm:text-7xl md:text-8xl font-bold uppercase tracking-wide mb-12 font-nimbus">
+      <div className="w-full lg:w-1/2 relative z-10 flex flex-col justify-start pt-6 pb-12 lg:pl-12">
+        <h2 className="text-[#06302b] text-5xl sm:text-7xl md:text-9xl font-bold uppercase tracking-wide mb-12 font-nimbus">
           My Journey
         </h2>
 
