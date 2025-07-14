@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import Background from "../Background";
 
 interface Project {
   id: string;

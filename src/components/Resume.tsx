@@ -153,7 +153,7 @@ export default function Resume() {
             
             <div className="text-center lg:text-right ">
             <button
-              onClick={() => window.open("/resume.pdf", "_blank")}
+              onClick={() => window.open("/Resume.pdf", "_blank")}
               className="inline-flex items-center gap-3 bg-[#06302b] hover:bg-[#095544] text-white font-medium px-6 py-3 rounded-2xl shadow-md transition-all mb-8 lg:mb-16"
             >
               <FaDownload />

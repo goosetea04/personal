@@ -27,7 +27,19 @@ export default function Home() {
       1000
     );
 
-    camera.position.set(20, 15, 20);
+    function getCameraDistance() {
+      const width = window.innerWidth;
+      console.log(width)
+      if (width < 640) return 80;      // sm
+      if (width < 768) return 60;      // md
+      if (width < 1024) return 40;     // lg
+      return 20;                       // xl and above
+    }
+
+    const distance = getCameraDistance();
+    console.log(`distance: ${distance}`)
+    camera.position.set(distance , distance *0.75, distance );
+
     camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer();
