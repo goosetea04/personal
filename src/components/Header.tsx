@@ -7,10 +7,10 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full flex items-center justify-between px-6 py-4 shadow-md bg-[#032221]">
+    <header className="sticky top-0 z-50 w-full flex items-center justify-between px-24 py-4 shadow-md bg-[#032221]">
       {/* Logo */}
       <Link href="/">
-        <div className="text-2xl font-bold text-gray-800 flex items-center">
+        <div className="text-2xl text-gray-800 flex items-center">
           <Image
             src="/logo.svg"
             alt="Profile"
@@ -18,6 +18,9 @@ const Header = () => {
             height={50}
             className="rounded-none object-cover"
           />
+          <p className="text-[#2cc295] font-regular text-l pt-1 pl-4">
+            GUSTI RAIS
+          </p>
         </div>
       </Link>
 
