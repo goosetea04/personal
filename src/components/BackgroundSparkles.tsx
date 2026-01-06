@@ -5,7 +5,16 @@ import { useEffect, useState } from "react";
 
 export const BackgroundSparkles = () => {
   // 1. Initialize with empty array so server renders nothing (or consistent empty state)
-  const [sparkles, setSparkles] = useState<any[]>([]);
+  const [sparkles, setSparkles] = useState<Sparkle[]>([]);
+
+  interface Sparkle {
+    id: number;
+    left: number;
+    top: number;
+    delay: number;
+    scale: number;
+    duration: number;
+  }
 
   // 2. Generate random values ONLY after component mounts on client
   useEffect(() => {
