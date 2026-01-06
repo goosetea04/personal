@@ -206,7 +206,7 @@ const ContactSection = () => {
             <div className="relative w-full max-w-lg md:max-w-2xl bg-white transform rotate-2 p-1 border-4 border-black shadow-[10px_10px_0_#39ff14] md:shadow-[15px_15px_0_#39ff14] animate-spin-stick origin-center my-auto">
                 
                 {/* The "Stick" Pin visual */}
-                <div className="absolute -top-6 left-1/2 w-4 h-12 bg-red-600 border-2 border-black z-20"></div>
+                <div className="absolute -top-6 left-1/2 w-4 h-12 bg-[#39ff14] border-2 border-black z-20"></div>
 
                 <div className="bg-black p-6 md:p-12 relative overflow-hidden group min-h-[500px] flex flex-col justify-center">
                     <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #39ff14 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
@@ -254,7 +254,7 @@ const ContactSection = () => {
                                 
                                 <button 
                                     disabled={status === 'SENDING'}
-                                    className="w-full bg-[#d60e15] hover:bg-[#ff1f28] disabled:bg-gray-600 text-white font-black text-lg md:text-2xl py-2 md:py-3 mt-4 transform -skew-x-6 border-2 border-black shadow-[4px_4px_0_white] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all active:scale-95 flex items-center justify-center gap-2"
+                                    className="w-full bg-[#39ff14] hover:bg-[#ff1f28] disabled:bg-gray-600 text-black font-black text-lg md:text-2xl py-2 md:py-3 mt-4 transform -skew-x-6 border-2 border-black shadow-[4px_4px_0_white] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all active:scale-95 flex items-center justify-center gap-2"
                                 >
                                     {status === 'SENDING' ? (
                                         <>SENDING...</>
