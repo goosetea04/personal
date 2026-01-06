@@ -1,14 +1,13 @@
 "use client"
 import { styles } from '@/constants/styles';
 import { BackgroundSparkles } from '@/components/BackgroundSparkles';
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { BackButton } from '@/components/BackButton';
 import { jobs } from '@/constants/jobs';
 import { projects } from '@/constants/projects';
 import {
-  Sparkles, Code, Terminal, User, FileText, Mail,
-  ArrowLeft, Github, Linkedin, ExternalLink, CheckCircle, Send, AlertCircle, Palette
+  Sparkles, Code,  User, Github, Linkedin, ExternalLink, CheckCircle, Send, AlertCircle, Palette
 } from 'lucide-react';
 
 const AboutSection = () => (
@@ -196,7 +195,7 @@ const ContactSection = () => {
             } else {
                 setStatus('ERROR');
             }
-        } catch (error) {
+        } catch  {
             setStatus('ERROR');
         }
     };
@@ -288,6 +287,7 @@ const ContactSection = () => {
 export default function GustiRaisPersonaPortfolio() {
   const [activeSection, setActiveSection] = useState<'HOME' | 'ABOUT' | 'RESUME' | 'PROJECTS' | 'CONTACT'>('HOME');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  type Section = "HOME" | "ABOUT" | "RESUME" | "PROJECTS" | "CONTACT";
   return (
     <div className="relative w-full h-screen overflow-hidden font-sans selection:bg-[#39ff14] selection:text-black bg-[#0a2e1f] text-[#e0ffe8]">
       {/* 1. Styles */}
@@ -328,7 +328,7 @@ export default function GustiRaisPersonaPortfolio() {
                       key={item.id}
                       onMouseEnter={() => setHoveredIndex(idx)}
                       onMouseLeave={() => setHoveredIndex(null)}
-                      onClick={() => setActiveSection(item.id as any)}
+                      onClick={() => setActiveSection(item.id as Section)}
                       style={{
                           animation: 'slide-up-stagger 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
                           animationDelay: `${idx * 0.1}s`,
