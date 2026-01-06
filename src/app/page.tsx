@@ -285,8 +285,6 @@ const ContactSection = () => {
 
 // --- MAIN CONTROLLER ---
 
-
-
 export default function GustiRaisPersonaPortfolio() {
   const [activeSection, setActiveSection] = useState<'HOME' | 'ABOUT' | 'RESUME' | 'PROJECTS' | 'CONTACT'>('HOME');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
