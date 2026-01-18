@@ -10,8 +10,8 @@ interface Project {
   tag: string;
   image: string;
   links: {
-    repo: string;
-    demo: string;
+    demo?: string;
+    repo?: string; // Add the ? to make it optional
   };
 }
 
