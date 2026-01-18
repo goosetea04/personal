@@ -40,7 +40,7 @@ export default function GustiRaisPersonaPortfolio() {
 
         {/* OTHER SECTIONS */}
         {activeSection !== 'HOME' && (
-          <div className="w-full h-full relative">
+          <div className="w-full h-full relative overflow-y-auto">
               {activeSection === 'ABOUT' && <AboutSection />}
               {activeSection === 'RESUME' && <ResumeSection />}
               {activeSection === 'PROJECTS' && <ProjectsSection />}
