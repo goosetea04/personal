@@ -9,6 +9,7 @@ export const ResumeSection = () => {
     { src: '/Ooredoo.jpg', label: 'Ooredoo' },
     { src: '/Pookie.PNG', label: 'Pookie' },
     { src: '/ANUISA.jpg', label: 'ANU Indonesian Students Association' },
+    { src: '/Mattel.jpeg', label: 'Mattel - Altimeda Client' },
   ];
 
   const handleDownload = () => {
