@@ -1,6 +1,22 @@
 export const projects = [
     {
+      id: 0,
+      title: "EDGAR Financial Analysis Platform",
+      description: "A comprehensive financial analysis tool that leverages SEC EDGAR database data to provide deep insights into company financials and market trends. Enables users to analyze financial statements, compare company metrics, track regulatory filings, and extract actionable intelligence from publicly available financial data for investment research and due diligence.",
+      tag: "SOFTWARE",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      links: { repo: "https://github.com/goosetea04/EDGAR-FInancial-Analysis" }
+    },
+    {
       id: 1,
+      title: "DAEWOO Steel Factory Analytics Dashboard",
+      description: "An interactive Power BI dashboard for DAEWOO Steel Factory that visualizes production metrics, equipment performance, and operational efficiency. Provides real-time insights into manufacturing processes, quality control data, and resource utilization to support data-driven decision-making across the production facility.",
+      tag: "SOFTWARE",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      links: { repo: "https://github.com/goosetea04/DAEWOO-Power-BI" }
+    },
+    {
+      id: 2,
       title: "Pookie Platforms",
       description: "Pookie is an All-in-One Career Analytics platform that connects early-career job seekers with opportunities at small and medium-sized businesses. Instead of scrolling through endless generic job listings, Pookie analyzes your profile, skills, and goals to deliver personalized job recommendations—including opportunities you didn't know existed. For SMBs, we make it easier to find qualified early-career talent without the need for massive recruiting budgets. Founded by students who've lived the job search struggle, Pookie solves a real problem: great early-career talent and meaningful SMB opportunities often miss each other. We use intelligent matching to bridge that gap, making career discovery smarter and more accessible for both job seekers and the businesses that need them.",
       tag: "SOFTWARE",

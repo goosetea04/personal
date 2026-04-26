@@ -1,13 +1,18 @@
 export const jobs = [
   { 
     title: 'DATA SCIENTIST INTERN', 
-    company: 'ALTIMEDA SOLUTIONS', 
-    year: 'DECEMBER 2025 - PRESENT' 
+    company: 'AUSTRALIAN MEDICAL COUNCIL', 
+    year: 'MARCH 2026 - PRESENT' 
   },
   { 
     title: 'FULLSTACK DEVELOPER', 
     company: 'POOKIE PLATFORMS', 
     year: 'AUGUST 2025 - PRESENT' 
+  },
+  { 
+    title: 'DATA SCIENTIST INTERN', 
+    company: 'ALTIMEDA SOLUTIONS', 
+    year: 'DECEMBER 2025 - MARCH 2026' 
   },
   { 
     title: 'PYTHON DEVELOPER AND PROJECT MANAGER', 
