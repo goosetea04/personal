@@ -5,7 +5,7 @@ export const projects = [
     description: "An R package for spatial field trial analysis in the Australian grains industry. Implements AR1×AR1 spatial mixed models via nlme — the industry-standard approach for variety performance trials — alongside utilities for experimental design validation, spatial residual diagnostics, and publication-ready field heatmaps. CRAN-ready: roxygen2 docs on every export, 29 passing testthat tests, GitHub Actions CI across 4 OS/R combinations, and an auto-deployed pkgdown site.",
     tag: "SOFTWARE",
     image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
-    links: { repo: "https://github.com/gustirais/grainr" }
+    links: { repo: "https://github.com/goosetea04/grainr" }
   },
   {
     id: 11,
