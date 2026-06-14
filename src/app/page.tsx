@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { styles } from '@/constants/styles';
 import { BackgroundSparkles } from '@/components/BackgroundSparkles';
 import { BackButton } from '@/components/BackButton';
+import { PersonaDateIntro } from '@/components/PersonaDateIntro';
+import { PersonaDateHUD } from '@/components/PersonaDateHUD';
 
 // Import Sections
 import { HomeSection } from '@/components/sections/HomeSection';
@@ -13,11 +15,20 @@ import { ContactSection } from '@/components/sections/ContactSection';
 
 export default function GustiRaisPersonaPortfolio() {
   const [activeSection, setActiveSection] = useState<'HOME' | 'ABOUT' | 'RESUME' | 'PROJECTS' | 'CONTACT'>('HOME');
+  const [introComplete, setIntroComplete] = useState(false);
 
   return (
     <div className="relative w-full h-screen overflow-hidden font-sans selection:bg-[#39ff14] selection:text-black bg-[#0a2e1f] text-[#e0ffe8]">
       {/* 1. Styles */}
       <style>{styles}</style>
+
+      {/* Persona date intro overlay */}
+      {!introComplete && (
+        <PersonaDateIntro onComplete={() => setIntroComplete(true)} />
+      )}
+
+      {/* Persistent date HUD — top right corner */}
+      {introComplete && <PersonaDateHUD />}
       
       <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-overlay"
         style={{ backgroundImage: `radial-gradient(circle, #03120b 1px, transparent 1px)`, backgroundSize: '8px 8px' }}
