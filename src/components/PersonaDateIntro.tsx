@@ -24,13 +24,14 @@ export const PersonaDateIntro = ({ onComplete, onExitStart }: { onComplete: () =
     return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [onComplete, onExitStart])
 
-  const day   = date ? DAYS[date.getDay()]                        : ''
-  const month = date ? MONTHS[date.getMonth()]                    : ''
-  const dateNum = date ? String(date.getDate()).padStart(2, '0')  : ''
-  const year  = date ? date.getFullYear()                         : ''
+  const day      = date ? DAYS[date.getDay()]                              : ''
+  const month    = date ? MONTHS[date.getMonth()]                          : ''
+  const monthNum = date ? String(date.getMonth() + 1).padStart(2, '0')    : ''
+  const dateNum  = date ? String(date.getDate()).padStart(2, '0')          : ''
+  const year     = date ? date.getFullYear()                               : ''
 
   return (
-    <div className={`fixed inset-0 z-[100] overflow-hidden ${phase === 'enter' ? 'bg-[#03120b]' : ''}`}>
+    <div className={`fixed inset-0 z-[100] overflow-hidden ${phase === 'enter' ? 'bg-[#03120b]' : 'pointer-events-none'}`}>
 
       {/* ── Dark panel ────────────────────────────────────────────────
           Revealed on enter by clipping from right → left
@@ -58,6 +59,18 @@ export const PersonaDateIntro = ({ onComplete, onExitStart }: { onComplete: () =
 
         {/* ── Calendar-style date display ──────────────────────────── */}
         <div className="absolute inset-0 flex flex-col items-center justify-center select-none">
+
+          {/* Muted timestamp header */}
+          <div className="flex items-center gap-3 mb-6 opacity-30">
+            <div className="h-px w-14 bg-[#39ff14]" />
+            <span
+              className="font-mono text-[#39ff14] tracking-[0.22em] uppercase"
+              style={{ fontSize: 'clamp(9px, 0.85vw, 11px)' }}
+            >
+              {year} · {monthNum} · {dateNum} · SESSION INITIATED
+            </span>
+            <div className="h-px w-14 bg-[#39ff14]" />
+          </div>
 
           {/* Month + Year — top of the "calendar page" */}
           <div className="flex items-center gap-3 mb-3">
@@ -102,6 +115,48 @@ export const PersonaDateIntro = ({ onComplete, onExitStart }: { onComplete: () =
           >
             {day}
           </span>
+
+          {/* Identity block */}
+          <div className="mt-5 flex flex-col items-center gap-1">
+            <div className="flex items-center gap-3 mb-1">
+              <div className="h-px w-8 bg-[#39ff14] opacity-40" />
+              <span
+                className="font-mono text-[#39ff14] tracking-[0.35em] uppercase opacity-55"
+                style={{ fontSize: 'clamp(8px, 0.85vw, 10px)' }}
+              >
+                ▶ ACCESSING
+              </span>
+              <div className="h-px w-8 bg-[#39ff14] opacity-40" />
+            </div>
+            <span
+              className="font-black text-white tracking-[0.18em] uppercase text-center"
+              style={{
+                fontSize: 'clamp(22px, 3.8vw, 56px)',
+                WebkitTextStroke: '1px #39ff14',
+              }}
+            >
+              GUSTI RAIS
+            </span>
+            <span
+              className="font-black text-[#39ff14] tracking-[0.38em] uppercase"
+              style={{ fontSize: 'clamp(9px, 1.15vw, 15px)' }}
+            >
+              PERSONAL REPOSITORY
+            </span>
+          </div>
+
+          {/* Muted status footer */}
+          <div className="flex items-center gap-3 mt-6 opacity-30">
+            <div className="h-px w-14 bg-[#39ff14]" />
+            <span
+              className="font-mono text-[#39ff14] tracking-[0.22em] uppercase"
+              style={{ fontSize: 'clamp(9px, 0.85vw, 11px)' }}
+            >
+              {day} · ALL ARCHIVES ACCESSIBLE
+            </span>
+            <div className="h-px w-14 bg-[#39ff14]" />
+          </div>
+
         </div>
       </motion.div>
 
