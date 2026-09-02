@@ -1,13 +1,10 @@
 "use client"
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { Sparkles } from 'lucide-react';
 
-interface HomeSectionProps {
-    onNavigate: (section: string) => void;
-}
-
-export const HomeSection = ({ onNavigate }: HomeSectionProps) => {
+export const HomeSection = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
@@ -25,11 +22,11 @@ export const HomeSection = ({ onNavigate }: HomeSectionProps) => {
 
                 <div className="flex flex-col space-y-3 md:space-y-2 transform -rotate-3 md:-rotate-6 origin-center">
                   {MENU_ITEMS.map((item, idx) => (
-                    <button
+                    <Link
                       key={item.id}
+                      href={`/${item.id.toLowerCase()}`}
                       onMouseEnter={() => setHoveredIndex(idx)}
                       onMouseLeave={() => setHoveredIndex(null)}
-                      onClick={() => onNavigate(item.id)}
                       style={{
                           animation: 'slide-up-stagger 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
                           animationDelay: `${idx * 0.1}s`,
@@ -54,7 +51,7 @@ export const HomeSection = ({ onNavigate }: HomeSectionProps) => {
                       <div className={`hidden md:block ml-4 transition-all duration-300 ${hoveredIndex === idx ? 'opacity-100 rotate-180 scale-125' : 'opacity-0 scale-0'}`}>
                         <Sparkles className="w-10 h-10 text-[#39ff14] fill-[#39ff14]" />
                       </div>
-                    </button>
+                    </Link>
                   ))}
                 </div>
             </div>

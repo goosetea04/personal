@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect, useMemo } from 'react';
 import { projects } from '@/constants/projects';
 import { ExternalLink, Github, X, FolderCode, Zap, Search, SlidersHorizontal, ChevronDown } from 'lucide-react';
@@ -306,22 +307,6 @@ export const ProjectsSection = () => {
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes slide-up-stagger {
-          from { transform: translateY(30px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        .animate-mask-wipe {
-          mask-image: linear-gradient(to right, black 0%, black 100%);
-          mask-size: 100% 100%;
-          animation: mask-wipe-anim 0.7s cubic-bezier(0.7, 0, 0.3, 1);
-        }
-        @keyframes mask-wipe-anim {
-          0% { mask-size: 0% 100%; }
-          100% { mask-size: 100% 100%; }
-        }
-      `}</style>
     </div>
   );
 };

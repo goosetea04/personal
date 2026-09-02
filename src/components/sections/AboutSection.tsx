@@ -17,7 +17,7 @@ export const AboutSection = () => (
              
              {/* Profile Image */}
              <img 
-               src="/me_new.jpeg"
+               src="/me.jpg"
                alt="Gusti"
                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
              />

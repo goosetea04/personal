@@ -18,7 +18,12 @@ export const BackgroundSparkles = () => {
 
   // 2. Generate random values ONLY after component mounts on client
   useEffect(() => {
-    const generatedSparkles = Array.from({ length: 20 }).map((_, i) => ({
+    // This animation runs indefinitely for as long as the app is mounted,
+    // so skip it entirely for anyone who's asked the OS for reduced motion
+    // (also the usual signal on battery-saver / low-power setups).
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const generatedSparkles = Array.from({ length: 10 }).map((_, i) => ({
       id: i,
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -26,7 +31,7 @@ export const BackgroundSparkles = () => {
       scale: 0.5 + Math.random(),
       duration: 3 + Math.random() * 4
     }));
-    
+
     setSparkles(generatedSparkles);
   }, []);
 
