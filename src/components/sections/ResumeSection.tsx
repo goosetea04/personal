@@ -11,6 +11,7 @@ export const ResumeSection = () => {
     { src: '/Pookie.PNG', label: 'Pookie' },
     { src: '/ANUISA.jpg', label: 'ANU Indonesian Students Association' },
     { src: '/Mattel.jpeg', label: 'Mattel - Altimeda Client' },
+    { src: '/amc.jpg', label: 'Australian Medical Council' },
   ];
 
   const handleDownload = () => {

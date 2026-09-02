@@ -1,13 +1,18 @@
 export const jobs = [
   { 
+    title: 'RESEARCH SOFTWARE ENGINEER', 
+    company: 'AUSTRALIAN NATIONAL UNIVERSITY', 
+    year: 'AUGUST 2026 - PRESENT' 
+  },
+  { 
     title: 'DATA SCIENTIST INTERN', 
     company: 'AUSTRALIAN MEDICAL COUNCIL', 
-    year: 'MARCH 2026 - PRESENT' 
+    year: 'MARCH 2026 - JULY 2026' 
   },
   { 
     title: 'FULLSTACK DEVELOPER', 
     company: 'POOKIE PLATFORMS', 
-    year: 'AUGUST 2025 - PRESENT' 
+    year: 'AUGUST 2025 - MAY 2026' 
   },
   { 
     title: 'DATA SCIENTIST INTERN', 
