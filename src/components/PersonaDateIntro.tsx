@@ -11,7 +11,7 @@ const SWEEP = 0.58
 const EASE: [number, number, number, number] = [0.76, 0, 0.24, 1]
 const HOLD_MS = 1600
 
-export const PersonaDateIntro = ({ onComplete, onExitStart }: { onComplete: () => void; onExitStart?: () => void }) => {
+export const PersonaDateIntro = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<'enter' | 'exit'>('enter')
   const [date, setDate] = useState<Date | null>(null)
 
@@ -19,10 +19,10 @@ export const PersonaDateIntro = ({ onComplete, onExitStart }: { onComplete: () =
     setDate(new Date())
     const exitAt = SWEEP * 1000 + HOLD_MS
     const doneAt = exitAt + SWEEP * 1000 + 150
-    const t1 = setTimeout(() => { setPhase('exit'); onExitStart?.() }, exitAt)
+    const t1 = setTimeout(() => setPhase('exit'), exitAt)
     const t2 = setTimeout(onComplete, doneAt)
     return () => { clearTimeout(t1); clearTimeout(t2) }
-  }, [onComplete, onExitStart])
+  }, [onComplete])
 
   const day      = date ? DAYS[date.getDay()]                              : ''
   const month    = date ? MONTHS[date.getMonth()]                          : ''

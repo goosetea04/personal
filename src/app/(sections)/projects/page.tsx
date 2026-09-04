@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 
 export const metadata: Metadata = {
-  title: 'Projects — Gusti Rais',
+  title: 'Projects',
   description: "A look at Gusti Rais's software and data science projects.",
 };
 

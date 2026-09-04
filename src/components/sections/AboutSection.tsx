@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Code2, Database, Network } from 'lucide-react';
 
 export const AboutSection = () => (
@@ -16,10 +17,13 @@ export const AboutSection = () => (
              <div className="absolute inset-0 bg-[#39ff14] opacity-20 group-hover:opacity-0 transition-opacity duration-300 z-10 mix-blend-overlay"></div>
              
              {/* Profile Image */}
-             <img 
+             <Image
                src="/me.jpg"
-               alt="Gusti"
-               className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+               alt="Portrait of Gusti Rais"
+               fill
+               priority
+               sizes="(max-width: 768px) 256px, 33vw"
+               className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
              />
           </div>
         </div>
@@ -31,7 +35,7 @@ export const AboutSection = () => (
           WHO IS <span className="text-[#39ff14] block md:inline">GUSTI?</span>
         </h2>
 
-        <div className="bg-white/10 backdrop-blur-md p-4 md:p-6 border-l-4 md:border-l-8 border-[#39ff14] transform skew-x-6 origin-left animate-mask-wipe" style={{ animationDelay: '0.5s', opacity: 0 }}>
+        <div className="bg-[#0a2e1f]/80 p-4 md:p-6 border-l-4 md:border-l-8 border-[#39ff14] transform skew-x-6 origin-left animate-mask-wipe" style={{ animationDelay: '0.5s', opacity: 0 }}>
           <div className="transform -skew-x-6 text-base md:text-xl font-medium text-[#e0ffe8] space-y-4">
             <p>
               I am a Software Engineer and Data Scientist specializing in the intersection of high-performance systems and predictive modeling. Currently completing a dual-degree at the Australian National University and Universitas Indonesia, my work focuses on bridging technical complexity with strategic decision-making.

@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { jobs } from '@/constants/jobs';
 
 export const ResumeSection = () => {
@@ -77,11 +78,13 @@ export const ResumeSection = () => {
                 {/* CRT Scanline Overlay */}
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 bg-[length:100%_2px,3px_100%]"></div>
                 
-                <img 
+                <Image
                   key={currentImg}
-                  src={photos[currentImg].src} 
-                  alt="Gallery" 
-                  className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-300 grayscale group-hover:grayscale-0"
+                  src={photos[currentImg].src}
+                  alt={photos[currentImg].label}
+                  fill
+                  sizes="384px"
+                  className="object-cover grayscale group-hover:grayscale-0"
                 />
 
                 {/* Status Bar */}

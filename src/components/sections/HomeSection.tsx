@@ -11,14 +11,17 @@ export const HomeSection = () => {
         <div className="w-full h-full flex flex-col md:flex-row items-center justify-center">
 
             {/* MOBILE ONLY TITLE */}
-             <div className="md:hidden absolute top-25 left-0 w-full text-center pointer-events-none opacity-50">
-                 <h1 className="text-6xl font-black italic text-white opacity-20">GUSTI RAIS</h1>
+             <div className="md:hidden absolute top-25 left-0 w-full text-center pointer-events-none opacity-50" aria-hidden="true">
+                 <p className="text-6xl font-black italic text-white opacity-20">GUSTI RAIS</p>
              </div>
             
             {/* LEFT: Menu Items */}
             <div className="relative w-full md:w-1/2 h-full flex flex-col justify-center items-center md:items-start md:pl-24 space-y-4 md:space-y-2">
                 {/* Background Glow */}
-                <div className="absolute md:left-[-150px] top-1/2 transform -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#39ff14] rounded-full blur-[80px] md:blur-[100px] pointer-events-none opacity-20" />
+                <div
+                  className="absolute md:left-[-150px] top-1/2 transform -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, rgba(57,255,20,0.35) 0%, rgba(57,255,20,0.12) 40%, rgba(57,255,20,0) 70%)' }}
+                />
 
                 <div className="flex flex-col space-y-3 md:space-y-2 transform -rotate-3 md:-rotate-6 origin-center">
                   {MENU_ITEMS.map((item, idx) => (
