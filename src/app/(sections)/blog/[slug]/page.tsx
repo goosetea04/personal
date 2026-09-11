@@ -56,7 +56,7 @@ export default async function BlogPostPage({
 
         {/* Title bar, matches the home menu's skewed black/green bars */}
         <div className="inline-block transform -rotate-2 mb-4 animate-slam">
-          <div className="px-5 py-2.5 md:px-7 md:py-3 -skew-x-12 bg-[#03120b] border-2 md:border-4 border-[#39ff14] shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)]">
+          <div className="px-5 py-2.5 mb-8 md:px-7 md:py-3 -skew-x-12 bg-[#03120b] border-2 md:border-4 border-[#39ff14] shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)]">
             <h1 className="skew-x-12 font-black text-2xl md:text-4xl tracking-tighter italic text-white uppercase">
               {meta.title}
             </h1>

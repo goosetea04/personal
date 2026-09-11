@@ -1,16 +1,22 @@
 export const metadata = {
-  title: "Hello, World",
-  date: "2026-09-07",
-  description: "Kicking off the blog — what to expect here.",
+  title: "Turns Out Good Software Design is Universal",
+  date: "2026-09-11",
+  description: "'When are we ever gonna use this?' My Naive self Said",
   tags: ["meta"],
 };
 
-This is the first post on the blog. It's written in **MDX**, so it's just markdown with the option to drop in React components whenever a post needs something interactive.
+When I first sat down in my Advanced Programming class, I was introduced to the concept of software design principles and most notably, the SOLID principles. As I was going through them all, I thought 'hmm.. this is too much info to digest. Will this actually get used in large legacy codebases?' I was under the impression that it's all just a formality, how naive I was.
 
-## Why a blog
+At the end, we had to apply the knowledge we learned in a project. The project is probably one computer science students have been used to for so long -- a CRM system. Sure, it was a good starting point to understand the importance of the principles, but it did not alleviate my issue with understanding large legacy codebases!
 
-A place to write up projects, experiments, and things I've learned in more depth than the [projects page](/projects) allows.
+As I’ve grown older and ventured into completely different tech ecosystems, I’ve had the major realization that good software design is inescapable. The work I'm currently doing involves the construction of efficient R packages and on the side, I am developing games that will hopefully see an alpha version soon! These domains are a departure to the ultra-formal usecases I learned at university, but they don't lack in demonstrating to me the importance of good design in software,
 
-## What's next
+It is easy to look at R as just a scripting language for quick statistical analysis and data visualization. You write a script, generate a plot, and move on. But the moment you pivot to R package management and building tools for others, there are issues you have to consider and might not even be fathomed for a scripter.
 
-More posts, on whatever I've been building or breaking lately.
+Without modularity, explicit dependencies, and sensible API design, a data science ecosystem quickly collapses into a tangled mess of version conflicts and irreproducible results. Good code design in R ensures that complex statistical tools remain maintainable, scalable, and actually usable by the broader community.
+
+Then there is game development. From the outside, games are all about creative art, physics, and fast-paced logic. When you look at the underlying code however, they are massive, highly concurrent state machines. It was truly something I never considered before, but a bunch of my backend work in game design was architecting the different states and all the transition from one to the other. Coding them and ensuring no race conditions happened were another exhausting issue.
+
+If you try to brute-force a game without applying solid design principles like the Entity-Component-System (ECS) architecture or the Observer pattern your codebase turns into a jumbled mess almost immediately. A poorly designed game doesn't just suffer from bugs, but it becomes impossible to optimize or even understand after taking a few weeks away from the screen.
+
+All in all, I have taken it upon myself to dedicate a bit of time to freshen up these concepts I took for granted in university. Good code is a matter of performance, optimization and software sustainability!
