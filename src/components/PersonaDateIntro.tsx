@@ -1,37 +1,53 @@
 "use client"
-import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { m, AnimatePresence } from 'framer-motion'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const DAYS = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY']
 const MONTHS = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER']
 
 // Sweep duration and easing — same values used for both clip-path and leading edge bar
 // so they stay perfectly in sync
-const SWEEP = 0.58
+const SWEEP = 0.5
 const EASE: [number, number, number, number] = [0.76, 0, 0.24, 1]
-const HOLD_MS = 1600
+const HOLD_MS = 1000
 
 export const PersonaDateIntro = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<'enter' | 'exit'>('enter')
   const [date, setDate] = useState<Date | null>(null)
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  const clearTimers = () => { timers.current.forEach(clearTimeout); timers.current = [] }
+
+  // Starts the exit sweep now and finishes once it has played out
+  const exit = useCallback(() => {
+    clearTimers()
+    setPhase('exit')
+    timers.current.push(setTimeout(onComplete, SWEEP * 1000 + 100))
+  }, [onComplete])
 
   useEffect(() => {
     setDate(new Date())
-    const exitAt = SWEEP * 1000 + HOLD_MS
-    const doneAt = exitAt + SWEEP * 1000 + 150
-    const t1 = setTimeout(() => setPhase('exit'), exitAt)
-    const t2 = setTimeout(onComplete, doneAt)
-    return () => { clearTimeout(t1); clearTimeout(t2) }
-  }, [onComplete])
+    timers.current.push(setTimeout(exit, SWEEP * 1000 + HOLD_MS))
+    return clearTimers
+  }, [exit])
+
+  // Click or any key skips straight to the exit sweep
+  useEffect(() => {
+    if (phase === 'exit') return
+    window.addEventListener('keydown', exit)
+    return () => window.removeEventListener('keydown', exit)
+  }, [phase, exit])
 
   const day      = date ? DAYS[date.getDay()]                              : ''
   const month    = date ? MONTHS[date.getMonth()]                          : ''
-  const monthNum = date ? String(date.getMonth() + 1).padStart(2, '0')    : ''
   const dateNum  = date ? String(date.getDate()).padStart(2, '0')          : ''
   const year     = date ? date.getFullYear()                               : ''
 
   return (
-    <div className={`fixed inset-0 z-[100] overflow-hidden ${phase === 'enter' ? 'bg-[#03120b]' : 'pointer-events-none'}`}>
+    <div
+      className={`persona-intro fixed inset-0 z-[100] overflow-hidden ${phase === 'enter' ? 'bg-[#03120b] cursor-pointer' : 'pointer-events-none'}`}
+      onClick={phase === 'enter' ? exit : undefined}
+    >
 
       {/* ── Dark panel ────────────────────────────────────────────────
           Revealed on enter by clipping from right → left
@@ -39,7 +55,7 @@ export const PersonaDateIntro = ({ onComplete }: { onComplete: () => void }) => 
           The clip-path and the leading-edge bar share the same
           duration + easing so the bar always sits exactly at the
           boundary of what's visible.                              ── */}
-      <motion.div
+      <m.div
         className="absolute inset-0 bg-[#03120b]"
         initial={{ clipPath: 'inset(0 100% 0 0%)' }}
         animate={{
@@ -60,20 +76,8 @@ export const PersonaDateIntro = ({ onComplete }: { onComplete: () => void }) => 
         {/* ── Calendar-style date display ──────────────────────────── */}
         <div className="absolute inset-0 flex flex-col items-center justify-center select-none">
 
-          {/* Muted timestamp header */}
-          <div className="flex items-center gap-3 mb-6 opacity-30">
-            <div className="h-px w-14 bg-[#39ff14]" />
-            <span
-              className="font-mono text-[#39ff14] tracking-[0.22em] uppercase"
-              style={{ fontSize: 'clamp(9px, 0.85vw, 11px)' }}
-            >
-              {year} · {monthNum} · {dateNum} · SESSION INITIATED
-            </span>
-            <div className="h-px w-14 bg-[#39ff14]" />
-          </div>
-
           {/* Month + Year — top of the "calendar page" */}
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-2">
             <div className="h-px w-8 bg-[#39ff14] opacity-40" />
             <span
               className="font-black tracking-[0.35em] text-[#39ff14] uppercase"
@@ -90,82 +94,53 @@ export const PersonaDateIntro = ({ onComplete }: { onComplete: () => void }) => 
             <div className="h-px w-8 bg-[#39ff14] opacity-40" />
           </div>
 
-          {/* Thin rule */}
-          <div className="w-40 h-px bg-[#39ff14] opacity-25 mb-1" />
-
           {/* Date number — the dominant element */}
           <span
             className="font-black leading-none text-white text-center block"
             style={{
               fontSize: 'clamp(110px, 23vw, 400px)',
               WebkitTextStroke: '2px #39ff14',
-              textShadow: '0 0 60px rgba(57,255,20,0.07)',
             }}
           >
             {dateNum}
           </span>
 
-          {/* Thin rule */}
-          <div className="w-40 h-px bg-[#39ff14] opacity-25 mt-1 mb-3" />
-
           {/* Day of week — base of the calendar page */}
           <span
-            className="font-black tracking-[0.5em] text-[#39ff14] uppercase"
+            className="mt-2 font-black tracking-[0.5em] text-[#39ff14] uppercase"
             style={{ fontSize: 'clamp(11px, 1.6vw, 20px)' }}
           >
             {day}
           </span>
 
-          {/* Identity block */}
-          <div className="mt-5 flex flex-col items-center gap-1">
-            <div className="flex items-center gap-3 mb-1">
-              <div className="h-px w-8 bg-[#39ff14] opacity-40" />
-              <span
-                className="font-mono text-[#39ff14] tracking-[0.35em] uppercase opacity-55"
-                style={{ fontSize: 'clamp(8px, 0.85vw, 10px)' }}
-              >
-                ▶ ACCESSING
-              </span>
-              <div className="h-px w-8 bg-[#39ff14] opacity-40" />
-            </div>
+          {/* Identity line */}
+          <div className="mt-8 flex items-baseline gap-3">
             <span
-              className="font-black text-white tracking-[0.18em] uppercase text-center"
+              className="font-mono text-[#39ff14] tracking-[0.35em] uppercase opacity-60"
+              style={{ fontSize: 'clamp(9px, 0.95vw, 12px)' }}
+            >
+              ▶ ACCESSING
+            </span>
+            <span
+              className="font-black text-white tracking-[0.18em] uppercase"
               style={{
-                fontSize: 'clamp(22px, 3.8vw, 56px)',
+                fontSize: 'clamp(20px, 3vw, 44px)',
                 WebkitTextStroke: '1px #39ff14',
               }}
             >
               GUSTI RAIS
             </span>
-            <span
-              className="font-black text-[#39ff14] tracking-[0.38em] uppercase"
-              style={{ fontSize: 'clamp(9px, 1.15vw, 15px)' }}
-            >
-              PERSONAL REPOSITORY
-            </span>
-          </div>
-
-          {/* Muted status footer */}
-          <div className="flex items-center gap-3 mt-6 opacity-30">
-            <div className="h-px w-14 bg-[#39ff14]" />
-            <span
-              className="font-mono text-[#39ff14] tracking-[0.22em] uppercase"
-              style={{ fontSize: 'clamp(9px, 0.85vw, 11px)' }}
-            >
-              {day} · ALL ARCHIVES ACCESSIBLE
-            </span>
-            <div className="h-px w-14 bg-[#39ff14]" />
           </div>
 
         </div>
-      </motion.div>
+      </m.div>
 
       {/* ── Leading-edge bar ──────────────────────────────────────────
           A narrow lime-green line that sweeps just ahead of the clip
           boundary. Remounts with a new key on each phase so it always
           starts from the left edge for both enter and exit sweeps.  ── */}
       <AnimatePresence>
-        <motion.div
+        <m.div
           key={phase}
           className="absolute top-0 bottom-0 left-0 w-[3px] bg-[#39ff14] z-10"
           initial={{ x: -3 }}

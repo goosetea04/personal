@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     template: "%s | Gusti Rais",
   },
   description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
@@ -57,7 +60,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={nimbusSans.variable}>
+    // suppressHydrationWarning: the head script may add data-intro-seen before hydration
+    <html lang="en" className={nimbusSans.variable} suppressHydrationWarning>
+      <head>
+        {/* Runs before first paint so a returning visitor never sees the intro overlay flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('intro-seen')==='1')document.documentElement.setAttribute('data-intro-seen','')}catch(e){}`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

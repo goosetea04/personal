@@ -4,6 +4,9 @@ import { ProjectsSection } from '@/components/sections/ProjectsSection';
 export const metadata: Metadata = {
   title: 'Projects',
   description: "A look at Gusti Rais's software and data science projects.",
+  alternates: {
+    canonical: '/projects',
+  },
 };
 
 export default function ProjectsPage() {

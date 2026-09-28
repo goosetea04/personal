@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   // which is the full "Gusti Rais — Software Engineer & Data Scientist".
   description:
     'Portfolio of Gusti Rais, a Software Engineer and Data Scientist specializing in high-performance systems and predictive modeling.',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function Home() {

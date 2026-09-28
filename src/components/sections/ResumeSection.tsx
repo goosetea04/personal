@@ -27,14 +27,14 @@ export const ResumeSection = () => {
 
   return (
     <div className="w-full h-full overflow-y-auto flex flex-col items-center p-4 pt-20 pb-20">
-      <h2 className="text-5xl md:text-7xl font-black text-white mb-10 transform -rotate-3 border-b-4 border-[#39ff14] animate-mask-wipe">
+      <h1 className="text-5xl md:text-7xl font-black text-white mb-10 transform -rotate-3 border-b-4 border-[#39ff14] animate-mask-wipe">
         MY JOURNEY
-      </h2>
+      </h1>
 
       <div className="flex flex-col md:flex-row items-start gap-12 w-full max-w-6xl mx-auto px-4">
 
         {/* Left Column: Timeline */}
-        <div className="relative w-full max-w-xl pl-6 md:pl-10 border-l-4 border-white/20">
+        <div className="relative flex-1 w-full max-w-xl pl-6 md:pl-10 border-l-4 border-white/20">
           {jobs.map((job, idx) => (
             <div
               key={idx}
@@ -59,7 +59,7 @@ export const ResumeSection = () => {
         </div>
 
         {/* Right Column: Download & Interactive Screen */}
-        <div className="md:sticky md:top-20 flex-shrink-0 ml-4 flex flex-col gap-8 w-full md:w-auto">
+        <div className="md:sticky md:top-20 flex-1 flex flex-col gap-8 w-full max-w-xl">
           
           <button 
             onClick={handleDownload}
@@ -69,7 +69,7 @@ export const ResumeSection = () => {
           </button>
 
           {/* Interactive Photo Screen */}
-          <div className="relative group w-full max-w-sm self-center md:self-start">
+          <div className="relative group w-full self-center md:self-start">
             {/* Screen Housing */}
             <div className="bg-zinc-900 border-4 border-white p-2 shadow-[20px_20px_0_#39ff14]">
               
@@ -83,7 +83,7 @@ export const ResumeSection = () => {
                   src={photos[currentImg].src}
                   alt={photos[currentImg].label}
                   fill
-                  sizes="384px"
+                  sizes="(min-width: 768px) 576px, 100vw"
                   className="object-cover grayscale group-hover:grayscale-0"
                 />
 

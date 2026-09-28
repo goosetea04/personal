@@ -18,7 +18,13 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const meta = await getPostMeta(slug);
-    return { title: meta.title, description: meta.description };
+    return {
+      title: meta.title,
+      description: meta.description,
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
+    };
   } catch {
     return {};
   }

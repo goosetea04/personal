@@ -23,13 +23,14 @@ export const BackgroundSparkles = () => {
     // (also the usual signal on battery-saver / low-power setups).
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const generatedSparkles = Array.from({ length: 10 }).map((_, i) => ({
+    // A few slow sparkles read as ambience; many fast ones read as noise
+    const generatedSparkles = Array.from({ length: 6 }).map((_, i) => ({
       id: i,
       left: Math.random() * 100,
       top: Math.random() * 100,
-      delay: Math.random() * 5,
+      delay: Math.random() * 6,
       scale: 0.5 + Math.random(),
-      duration: 3 + Math.random() * 4
+      duration: 6 + Math.random() * 4
     }));
 
     setSparkles(generatedSparkles);

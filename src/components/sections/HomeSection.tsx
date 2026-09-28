@@ -35,10 +35,10 @@ export const HomeSection = () => {
                           animationDelay: `${idx * 0.1}s`,
                           opacity: 0
                       }}
-                      className={`relative group flex items-center transition-all duration-300 ease-out ${item.offset} ${hoveredIndex === idx ? 'translate-x-4 md:translate-x-12 scale-105 md:scale-110 z-20' : 'z-10'}`}
+                      className={`relative group flex items-center transition-transform duration-300 ease-out ${item.offset} ${hoveredIndex === idx ? 'translate-x-3 md:translate-x-8 scale-105 z-20' : 'z-10'}`}
                     >
                       {/* Black Bar */}
-                      <div className={`px-6 py-2 md:px-8 md:py-2 transform -skew-x-12 border-2 md:border-4 transition-all duration-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] group-hover:shadow-[6px_6px_0px_0px_rgba(3,18,11,1)] md:group-hover:shadow-[8px_8px_0px_0px_rgba(3,18,11,1)]`}
+                      <div className={`px-6 py-2 md:px-8 md:py-2 transform -skew-x-12 border-2 md:border-4 transition-colors duration-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] group-hover:shadow-[6px_6px_0px_0px_rgba(3,18,11,1)] md:group-hover:shadow-[8px_8px_0px_0px_rgba(3,18,11,1)]`}
                         style={{
                             backgroundColor: hoveredIndex === idx ? '#39ff14' : '#03120b',
                             color: hoveredIndex === idx ? '#03120b' : '#e0ffe8',
@@ -51,7 +51,7 @@ export const HomeSection = () => {
                       </div>
                       
                       {/* Hover Star */}
-                      <div className={`hidden md:block ml-4 transition-all duration-300 ${hoveredIndex === idx ? 'opacity-100 rotate-180 scale-125' : 'opacity-0 scale-0'}`}>
+                      <div className={`hidden md:block ml-4 transition-[transform,opacity] duration-300 ${hoveredIndex === idx ? 'opacity-100 rotate-180 scale-125' : 'opacity-0 scale-0'}`}>
                         <Sparkles className="w-10 h-10 text-[#39ff14] fill-[#39ff14]" />
                       </div>
                     </Link>

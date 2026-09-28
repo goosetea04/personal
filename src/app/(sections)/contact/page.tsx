@@ -4,6 +4,9 @@ import { ContactSection } from '@/components/sections/ContactSection';
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Get in touch with Gusti Rais.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {

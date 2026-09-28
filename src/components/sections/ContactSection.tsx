@@ -52,7 +52,7 @@ export const ContactSection = () => {
                                     <CheckCircle className="w-16 h-16 text-black" />
                                 </div>
                             </div>
-                            <h2 className="text-5xl md:text-7xl font-black text-white mb-2 transform -skew-x-12">CARD SENT!</h2>
+                            <h1 className="text-5xl md:text-7xl font-black text-white mb-2 transform -skew-x-12">CARD SENT!</h1>
                             <p className="text-[#39ff14] font-bold text-xl uppercase tracking-widest">HEART STOLEN SUCCESSFULLY</p>
                             <button 
                                 onClick={() => setStatus('IDLE')}
@@ -63,7 +63,7 @@ export const ContactSection = () => {
                         </div>
                     ) : (
                         <>
-                            <h2 className="text-4xl md:text-7xl font-black text-[#39ff14] text-center mb-2 transform -skew-x-12 hover-glitch">TAKE YOUR HEART</h2>
+                            <h1 className="text-4xl md:text-7xl font-black text-[#39ff14] text-center mb-2 transform -skew-x-12 hover-glitch">TAKE YOUR HEART</h1>
                             <p className="text-white text-center font-bold text-sm md:text-xl mb-6 md:mb-8 uppercase tracking-widest">Send a calling card</p>
                             
                             <form className="space-y-4 relative z-10" onSubmit={handleSubmit}>

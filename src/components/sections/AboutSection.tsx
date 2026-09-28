@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 const SKILLS = [
   { label: 'R', category: 'DATA SCIENCE', description: 'Statistical modeling and exploratory analysis when the question matters more than the framework.' },
@@ -57,7 +57,7 @@ const SkillSelect = () => {
       <AnimatePresence mode="wait">
         {!category ? (
           /* Layer 1: categories */
-          <motion.div
+          <m.div
             key="categories"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -86,10 +86,10 @@ const SkillSelect = () => {
                 </button>
               );
             })}
-          </motion.div>
+          </m.div>
         ) : (
           /* Layer 2: skills within category */
-          <motion.div
+          <m.div
             key="skills"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -112,9 +112,10 @@ const SkillSelect = () => {
                     }`}
                   >
                     {isActive && (
-                      <motion.div
-                        layoutId="skill-cursor"
-                        className="absolute -left-1 w-2 h-2 rotate-45 bg-[#39ff14] shadow-[0_0_6px_#39ff14]"
+                      <m.div
+                        className="absolute -left-1 w-2 h-2 bg-[#39ff14] shadow-[0_0_6px_#39ff14]"
+                        initial={{ scale: 0, rotate: 45 }}
+                        animate={{ scale: 1, rotate: 45 }}
                         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                       />
                     )}
@@ -132,7 +133,7 @@ const SkillSelect = () => {
             {/* Detail panel */}
             <div className="relative bg-[#0a2e1f]/80 border-2 border-[#39ff14] p-6 md:p-8 overflow-hidden min-h-[220px]">
               <AnimatePresence mode="wait">
-                <motion.div
+                <m.div
                   key={skill.label}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -150,10 +151,10 @@ const SkillSelect = () => {
                   <p className="text-[#e0ffe8] text-sm md:text-base font-medium">
                     {skill.description}
                   </p>
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>
@@ -163,9 +164,9 @@ const SkillSelect = () => {
 export const AboutSection = () => (
   <div className="relative w-full h-full overflow-y-auto overflow-x-hidden flex flex-col items-center justify-start p-4 md:p-10 pt-20 md:pt-10">
 
-    <h2 className="w-full max-w-5xl text-5xl md:text-8xl font-black text-white italic transform -skew-x-12 mb-6 drop-shadow-[4px_4px_0_#000] animate-slam text-center" style={{ animationDelay: '0.3s', opacity: 0 }}>
+    <h1 className="w-full max-w-5xl text-5xl md:text-8xl font-black text-white italic transform -skew-x-12 mb-6 drop-shadow-[4px_4px_0_#000] animate-slam text-center" style={{ animationDelay: '0.3s', opacity: 0 }}>
           WHO IS <span className="text-[#39ff14]">GUSTI?</span>
-    </h2>
+    </h1>
 
     
     <div className="relative w-full max-w-5xl flex flex-col md:flex-row items-start gap-8 mb-20 md:mb-0">     

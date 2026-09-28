@@ -6,12 +6,12 @@ export const BlogSection = ({ posts }: { posts: Post[] }) => {
   return (
     <div className="w-full h-full overflow-y-auto flex flex-col items-center p-4 pt-20 pb-20">
       <div className="relative mb-2 transform -rotate-3">
-        <h2
+        <h1
           className="glitch-text text-5xl md:text-7xl font-black text-white uppercase tracking-tighter italic animate-slam"
           data-text="BLOG"
         >
           BLOG
-        </h2>
+        </h1>
       </div>
       <div className="w-40 h-1.5 bg-[#39ff14] transform -rotate-3 mb-10 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.6)]" />
 

@@ -1,5 +1,5 @@
 "use client"
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const DAY_ABBR = ['SUN','MON','TUE','WED','THU','FRI','SAT']
@@ -13,7 +13,7 @@ export const PersonaDateHUD = () => {
   if (!date) return null
 
   return (
-    <motion.div
+    <m.div
       className="fixed top-4 right-4 z-40 pointer-events-none"
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
@@ -33,6 +33,6 @@ export const PersonaDateHUD = () => {
           </span>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }

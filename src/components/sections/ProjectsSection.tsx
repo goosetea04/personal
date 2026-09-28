@@ -17,7 +17,22 @@ interface Project {
 
 type SortOption = 'default' | 'az' | 'za';
 
+// Card entrance stagger (seconds)
+const CARD_ANIM_DURATION = 0.5;
+const CARD_ANIM_BASE_DELAY = 0.05;
+const CARD_ANIM_STEP = 0.07;
+
 export const ProjectsSection = () => {
+  // The stagger entrance only plays on first load. Once it has finished, cards
+  // render without it, so filtering/sorting/searching just swaps them in place.
+  const [entranceDone, setEntranceDone] = useState(false);
+  useEffect(() => {
+    const totalMs =
+      (CARD_ANIM_BASE_DELAY + (projects.length - 1) * CARD_ANIM_STEP + CARD_ANIM_DURATION) * 1000;
+    const t = setTimeout(() => setEntranceDone(true), totalMs);
+    return () => clearTimeout(t);
+  }, []);
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeTag, setActiveTag] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
@@ -68,9 +83,9 @@ export const ProjectsSection = () => {
     <div className="w-full h-full overflow-y-auto flex flex-col items-center p-4 pt-20 pb-20">
 
       {/* HEADER */}
-      <h2 className="text-5xl md:text-7xl font-black text-white mb-10 transform -rotate-3 border-b-4 border-[#39ff14] animate-mask-wipe uppercase tracking-tighter">
+      <h1 className="text-5xl md:text-7xl font-black text-white mb-10 transform -rotate-3 border-b-4 border-[#39ff14] animate-mask-wipe uppercase tracking-tighter">
         My Projects
-      </h2>
+      </h1>
 
       {/* ── CONTROLS BAR ── */}
       <div className="w-full max-w-6xl mx-auto px-4 mb-8 flex flex-col gap-4">
@@ -173,9 +188,9 @@ export const ProjectsSection = () => {
               key={p.id}
               onClick={() => setSelectedProject(p)}
               className="group relative cursor-pointer"
-              style={{
-                animation: `slide-up-stagger 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`,
-                animationDelay: `${0.05 + (i * 0.07)}s`,
+              style={entranceDone ? undefined : {
+                animation: `slide-up-stagger ${CARD_ANIM_DURATION}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`,
+                animationDelay: `${CARD_ANIM_BASE_DELAY + i * CARD_ANIM_STEP}s`,
                 opacity: 0,
               }}
             >

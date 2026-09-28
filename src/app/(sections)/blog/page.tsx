@@ -5,6 +5,9 @@ import { getAllPosts } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Writeups on projects, experiments, and things Gusti Rais has learned.",
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default async function BlogPage() {

@@ -4,6 +4,9 @@ import { ResumeSection } from '@/components/sections/ResumeSection';
 export const metadata: Metadata = {
   title: 'Resume',
   description: "Gusti Rais's work history and downloadable CV.",
+  alternates: {
+    canonical: '/resume',
+  },
 };
 
 export default function ResumePage() {
