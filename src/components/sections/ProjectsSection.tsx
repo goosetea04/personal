@@ -203,7 +203,7 @@ export const ProjectsSection = () => {
                   <img
                     src={p.image}
                     alt={p.title}
-                    className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-[filter] duration-700"
+                    className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 pointer-coarse:grayscale-0 transition-[filter] duration-700"
                   />
                   <div className="absolute top-0 right-0 bg-[#39ff14] text-black font-black px-4 py-1 text-[12px] uppercase tracking-tighter">
                     {p.tag}
@@ -253,7 +253,7 @@ export const ProjectsSection = () => {
 
             {/* Modal Left */}
             <div className="w-full md:w-1/2 h-64 md:h-auto relative">
-              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover contrast-125 grayscale hover:grayscale-0 transition-all duration-700" />
+              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover contrast-125 grayscale hover:grayscale-0 pointer-coarse:grayscale-0 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
               {/* Tag chip on modal */}
               <span className="absolute top-4 left-4 bg-[#39ff14] text-black font-black text-[10px] tracking-widest uppercase px-3 py-1">

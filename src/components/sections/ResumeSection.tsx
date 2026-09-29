@@ -84,7 +84,7 @@ export const ResumeSection = () => {
                   alt={photos[currentImg].label}
                   fill
                   sizes="(min-width: 768px) 576px, 100vw"
-                  className="object-cover grayscale group-hover:grayscale-0"
+                  className="object-cover grayscale group-hover:grayscale-0 pointer-coarse:grayscale-0"
                 />
 
                 {/* Status Bar */}

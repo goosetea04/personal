@@ -188,7 +188,7 @@ export const AboutSection = () => (
                fill
                priority
                sizes="(max-width: 768px) 256px, 33vw"
-               className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+               className="object-cover grayscale group-hover:grayscale-0 pointer-coarse:grayscale-0 transition-[filter] duration-500"
              />
           </div>
         </div>
